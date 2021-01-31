@@ -2596,6 +2596,8 @@ footer .copyright span:last-child::after {
 	background: #000000;
 }
 
+/*# sourceMappingURL=main.css.map */
+
 /**
  * Sqaure Game Spinner
  * ------------------------------------------------------------------- 
@@ -2608,30 +2610,25 @@ footer .copyright span:last-child::after {
 	 margin: 0;
 	 padding: 0;
  }
- 
- body {
-	 background: black;
- }
- 
+
  .container {
 	 text-align: center;
  }
 
 @media only screen and (max-width: 600px) {
 section {
- min-width: 350px;
-}
+ min-width: 350px;}
 }
  
- .loader {
-	 position: relative;
-	 width: 60px;
-	 height: 60px;
-	 border-radius: 50%;
-	 margin: 0px;
-	 display: inline-block;
-	 vertical-align: middle;
- }
+.loader {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin: 0px;
+	display: inline-block;
+	vertical-align: middle;
+}
  
 .loader-17 .css-square { 
    position: absolute;
@@ -2703,5 +2700,3 @@ section {
 75% { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
 80% { opacity: 1; } 
 }
-
-/*# sourceMappingURL=main.css.map */
