@@ -2694,7 +2694,6 @@ section {
 80% { opacity: 1; } 
 }
  
-
 @keyframes dominos {
 50% { opacity: 0.7; }
 75% { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
