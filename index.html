@@ -234,17 +234,23 @@
 
 						<div class="timeline-content">
 							<h4>BOSCH Center for Artificial Intelligence</h4>
-							<p style="text-align: justify;"> Implemented object's 6D pose estimation pipeline using
+							<p style="text-align: justify;"> Implemented engineering applications based on
 								'Dense Object Network (DON)'. The DON built on one of the popular CNN networks like the
-								'ResNet' converts a 4-Channel RGBD image to dense features making it view-invariant.
+								'ResNet' converts a RGB image to dense features invariant to viewpoints, illumination &
+								deformation.
 							</p>
 							<ol>
-								<li>Added 'Distribution Loss' to the existing DON, reducing descriptor detection
-									anomalies over the 'Contrastive loss'.
+								<li>Added 'Spatial-Temporal Distribuion Loss' to the existing DON for better uni-model
+									spatial-temporal prediction of keypoints with optimal activations over the
+									'Constrastive Loss'.
 								</li>
-								<li>Engineered an object's 6D pose estimation pipeline based on DON. The model picks
-									keypoints from the dense visual object descriptors yielding the exact pose
-									estimation from any view of the object.
+								<li>Build a keypoint app incorporating DON predicting objects' 6D-Pose invariant to
+									occlusion & viewpoints.
+								</li>
+								<li>Engineered optimization process to
+									auto select geometrically consistent
+									to object's viewpoints, illumination
+									& deformation keypoints.
 								</li>
 
 							</ol>
@@ -677,6 +683,25 @@
 							</div>
 						</div> <!-- /folio-item -->
 
+						<div class="bgrid folio-item">
+							<div class="item-wrap">
+								<img src="images/portfolio/BCAI.gif" alt=" " width="550">
+								<a href="#modal-14" class="overlay">
+									<div class="folio-item-table">
+										<div class="folio-item-cell">
+											<h3 class="folio-title">"Learning Geometrically Consistent Object Keypoints
+												with Dense Object Networks"</h3>
+											<span class="folio-types">
+												Computer Vision based
+												Reinforcement Learning &
+												Planning
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div> <!-- /folio-item -->
+
 						<!-- modal popups - begin
 			============================================================= -->
 
@@ -1048,17 +1073,51 @@
 																						class="popup-modal-dismiss">Close</a>
 																				</div>
 
+																				<div id="modal-14"
+																					class="popup-modal slider mfp-hide">
+
+																					<div class="media">
+																						<img src="images/portfolio/silhouette_seperation_loss.png"
+																							alt="" width="550">
+																					</div>
+
+																					<div class="description-box">
+																						<h4>Learning Geometrically
+																							Consistent Object Keypoints
+																							with Dense Object Networks
+																						</h4>
+																						<p>Engineered optimization
+																							process to
+																							auto select geometrically
+																							consistent
+																							to object's viewpoints,
+																							illumination
+																							& deformation keypoints.
+																						</p>
+
+																						<div class="categories">
+																							Computer Vision based
+																							Reinforcement Learning &
+																							Planning
+																						</div>
+																					</div>
+
+																					<div class="link-box">
+																						<a href="#"
+																							class="popup-modal-dismiss">Close</a>
+																					</div>
 
 
-																				<!-- modal popups - end
+
+																					<!-- modal popups - end
 		   ============================================================= -->
 
 
-																			</div> <!-- /portfolio-wrapper -->
+																				</div> <!-- /portfolio-wrapper -->
 
-																		</div> <!-- /twelve -->
+																			</div> <!-- /twelve -->
 
-																	</div> <!-- /portfolio-content -->
+																		</div> <!-- /portfolio-content -->
 
 	</section> <!-- /portfolio -->
 
