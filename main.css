@@ -64,20 +64,6 @@ h2 {
     border-radius: 10px;
 }
 
-.badge-panel img:hover::after {
-    content: attr(title);
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: black;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    white-space: nowrap;
-    visibility: visible;
-}
-
 .badge-panel img {
     border-radius: 0%;
     margin: 5px 2px 15px 2px;
@@ -152,7 +138,7 @@ h2 {
 
 .portfolio-card:hover {
     gh {
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
 }
 
