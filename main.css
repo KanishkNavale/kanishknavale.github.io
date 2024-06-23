@@ -27,6 +27,30 @@ h2 {
     margin: 5px 10px 10px 10px;
 }
 
+#banner {
+    background-size: cover;
+    max-width: auto;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+
+#banner h1 {
+    color: #ffffff;
+    font-family: "poppins-medium", sans-serif;
+    font-size: 5.5em;
+    text-align: center;
+    margin: 0;
+}
+
+
 .portfolio,
 .career,
 .intro {
