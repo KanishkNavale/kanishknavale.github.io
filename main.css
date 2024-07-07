@@ -47,7 +47,7 @@ h2 {
     margin: 0;
 }
 
-
+.skills,
 .portfolio,
 .career,
 .intro {
@@ -65,6 +65,7 @@ h2 {
     border-radius: 50%;
 }
 
+.skills-panel,
 .badge-panel {
     display: flex;
     flex-wrap: wrap;
@@ -73,6 +74,7 @@ h2 {
     justify-content: center;
     padding: 10px;
     overflow: hidden;
+    max-width: 900px;
 }
 
 .badge-panel badge {
