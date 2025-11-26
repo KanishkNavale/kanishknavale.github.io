@@ -554,8 +554,8 @@ html a {
 
 @media screen and (max-width: 479px) {
     :root {
-        --card-height: 20vh;
-        --card-width: calc(100vw - 40px);
+        --card-height: 35vh;
+        --card-width: calc((100vw - 60px) / 2);
     }
 
     .container {
@@ -616,7 +616,6 @@ html a {
 
     .portfolio-card {
         margin: 5px;
-        width: calc(100vw - 30px);
     }
 
     .portfolio-card h1 {
@@ -629,6 +628,11 @@ html a {
 }
 
 @media screen and (max-width: 374px) {
+    :root {
+        --card-height: 32vh;
+        --card-width: calc(100vw - 40px);
+    }
+
     .lander .content .title {
         font-size: 1.5rem;
     }
@@ -646,10 +650,10 @@ html a {
     }
 
     .portfolio-card h1 {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .portfolio-card h2 {
-        font-size: 0.4rem;
+        font-size: 0.5rem;
     }
 }
