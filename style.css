@@ -327,6 +327,22 @@ html a {
     color: #ffffff;
 }
 
+footer {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding: 1rem;
+    color: #888;
+    font-size: 0.5rem;
+}
+
+footer a {
+    color: #888;
+    text-decoration: none;
+}
+
 @media screen and (min-width: 2560px) {
     :root {
         --card-height: 35vh;
