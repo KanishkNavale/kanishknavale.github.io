@@ -35,13 +35,12 @@ function hackerEffect(element, phrase, interval = 30, steps = 10, callback) {
 
 function rotatePhrases() {
     const phrases = [
-        "Hello! 👋",
-        "Servus! 😇",
-        "नमस्ते! 🙏",
+        "Hello! 👋 Servus! 😇 नमस्ते! 🙏",
         "I'm an artist 🎨",
-        "I'm a Robotics Engineer 🤖",
-        "I'm an AI Engineer ✨",
+        "A Robotics Engineer 🤖",
+        "An AI Engineer ✨",
         "I'm currently building secure AI-Agents 🧠",
+        "Welcome to my portfolio 🚀"
     ];
     let index = 0;
     const banner = document.getElementById("banner");
@@ -50,7 +49,7 @@ function rotatePhrases() {
     function showNextPhrase() {
         if (index < phrases.length) {
             hackerEffect(banner, phrases[index], 30, 10, () => {
-                setTimeout(showNextPhrase, 3000);
+                setTimeout(showNextPhrase, 2000);
             });
             index++;
         }
@@ -60,3 +59,13 @@ function rotatePhrases() {
 }
 
 document.addEventListener('DOMContentLoaded', rotatePhrases);
+
+document.addEventListener('wheel', function (e) {
+    const container = document.querySelector('.container');
+    if (!container) return;
+
+    if (!container.contains(e.target)) {
+        container.scrollTop += e.deltaY;
+        e.preventDefault();
+    }
+}, { passive: false });
