@@ -1,0 +1,147 @@
+:root {
+    --accent-color: #00ff88;
+}
+
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.lander {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: none;
+}
+
+.lander::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(images/2444.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lander .content {
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    gap: 2rem;
+}
+
+.lander .content .photo {
+    width: 12rem;
+    height: 12rem;
+    background-image: url(images/profile.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.lander .content .writer {
+    display: flex;
+    flex-direction: column;
+    width: 80ch;
+}
+
+.lander .content .title {
+    color: white;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: -1rem;
+}
+
+.lander .content .banner {
+    color: white;
+    font-size: 2rem;
+    margin-top: 1rem;
+    min-width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: 0.1em;
+}
+
+.lander .social-bar {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    padding: 0.8rem 2.5rem;
+    border-radius: 1.5rem;
+    background: rgba(0, 64, 32, 0.22);
+    box-shadow: 0 8px 8px 0 rgba(0, 255, 136, 0.25);
+    backdrop-filter: blur(18px) brightness(1.2);
+    -webkit-backdrop-filter: blur(18px) brightness(1.2);
+    border: 1.5px solid var(--accent-color);
+    z-index: 2;
+}
+
+.social-bar .social-icon {
+    color: #fff;
+    font-size: 2rem;
+    transition: color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-bar .social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+.social-icon.location {
+    position: relative;
+}
+
+.social-icon.location .flag-tooltip {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: -3em;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    color: #fff;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.social-icon.location:hover .flag-tooltip,
+.social-icon.location:focus .flag-tooltip {
+    opacity: 1;
+}
