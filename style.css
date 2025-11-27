@@ -116,7 +116,7 @@ body::before {
     margin-left: 0.1em;
 }
 
-.social-bar {
+.haptics {
     position: fixed;
     bottom: 3.1vh;
     left: 50%;
@@ -132,7 +132,7 @@ body::before {
     z-index: 100;
 }
 
-.social-bar .social-icon {
+.haptics .haptics-icon {
     color: #fff;
     font-size: 2rem;
     transition: color 0.2s, transform 0.2s;
@@ -142,16 +142,16 @@ body::before {
     text-decoration: none;
 }
 
-.social-bar .social-icon:hover {
+.haptics .haptics-icon:hover {
     color: var(--accent-color);
     transform: scale(1.2);
 }
 
-.social-icon.location {
+.haptics-icon.location {
     position: relative;
 }
 
-.social-icon.location .flag-tooltip {
+.haptics-icon.location .flag-tooltip {
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -167,8 +167,8 @@ body::before {
     z-index: 10;
 }
 
-.social-icon.location:hover .flag-tooltip,
-.social-icon.location:focus .flag-tooltip {
+.haptics-icon.location:hover .flag-tooltip,
+.haptics-icon.location:focus .flag-tooltip {
     opacity: 1;
 }
 
