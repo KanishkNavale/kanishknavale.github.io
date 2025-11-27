@@ -39,7 +39,7 @@ body::before {
     position: absolute;
     left: 50%;
     top: 3em;
-    width: 90%;
+    width: 95%;
     height: 93vh;
     transform: translate(-50%, 0);
     overflow-y: auto;
@@ -118,7 +118,7 @@ body::before {
 
 .social-bar {
     position: fixed;
-    bottom: 3vh;
+    bottom: 3.1vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -191,10 +191,10 @@ body::before {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    max-width: 800px;
     height: 350px;
     margin: 2rem auto;
     display: block;
+    scale: 1.2;
 }
 
 .section p {
@@ -308,6 +308,67 @@ body::before {
     animation: redToWhiteGradient 2.5s linear infinite;
 }
 
+.resume-card {
+    background: rgba(32, 32, 32, 0.22);
+    backdrop-filter: blur(12px) brightness(1.1);
+    border-radius: 10px;
+    border: 1.5px solid var(--accent-color);
+    width: calc(var(--card-width) * 2);
+    min-height: 180px;
+    padding: 16px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.resume-card .resume-logo {
+    width: auto;
+    height: 3.5rem;
+    object-fit: contain;
+    margin-bottom: 0.2em;
+}
+
+.resume-card .resume-header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.resume-card .resume-years {
+    font-size: 0.8em;
+    color: var(--accent-color);
+    font-family: "poppins-medium", sans-serif;
+    margin-right: 0.5em;
+    white-space: nowrap;
+}
+
+.resume-card .resume-company {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-family: "poppins-medium", sans-serif;
+}
+
+.resume-card .resume-position {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #fff;
+    font-family: "poppins-medium", sans-serif;
+}
+
+.resume-card .resume-desc {
+    font-size: 1em;
+    color: #eee;
+    margin-top: 0.5em;
+    font-style: italic;
+    line-height: 1.5;
+}
+
 @keyframes redToWhiteGradient {
     0% {
         color: var(--accent-color);
@@ -341,335 +402,4 @@ footer {
 footer a {
     color: #888;
     text-decoration: none;
-}
-
-@media screen and (min-width: 2560px) {
-    :root {
-        --card-height: 35vh;
-    }
-
-    .lander .content .title {
-        font-size: 6rem;
-    }
-
-    .lander .content .banner {
-        font-size: 2.5rem;
-    }
-
-    .section h1 {
-        font-size: 3rem;
-    }
-
-    .section p {
-        font-size: 1.4rem;
-    }
-
-    .container .section {
-        max-width: 1200px;
-    }
-
-    .portfolio-card h1 {
-        font-size: 1.1rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (min-width: 1440px) and (max-width: 2559px) {
-    :root {
-        --card-height: 32vh;
-    }
-
-    .portfolio-card h1 {
-        font-size: 1rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
-    :root {
-        --card-height: 28vh;
-    }
-
-    .lander .content .title {
-        font-size: 4rem;
-    }
-
-    .lander .content .banner {
-        font-size: 1.8rem;
-    }
-
-    .portfolio-card h1 {
-        font-size: 1rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (max-width: 1023px) {
-    :root {
-        --card-height: 26vh;
-    }
-
-    .lander .content {
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 4vh;
-    }
-
-    .lander .content .photo {
-        width: 10rem;
-        height: 10rem;
-    }
-
-    .lander .content .title {
-        font-size: 3.5rem;
-        text-align: center;
-    }
-
-    .lander .content .banner {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .section h1 {
-        font-size: 2rem;
-    }
-
-    .section p {
-        font-size: 1.1rem;
-    }
-
-    .section .banner {
-        height: 250px;
-    }
-
-    .container .section {
-        padding: 3rem 1.5rem;
-    }
-
-    .portfolio-card h1 {
-        font-size: 1rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    :root {
-        --card-height: 24vh;
-    }
-
-    .container {
-        width: 95%;
-        top: 2em;
-    }
-
-    .lander .content .photo {
-        width: 8rem;
-        height: 8rem;
-    }
-
-    .lander .content .title {
-        font-size: 2.5rem;
-    }
-
-    .lander .content .banner {
-        font-size: 1.2rem;
-        white-space: normal;
-    }
-
-    .section h1 {
-        font-size: 1.8rem;
-    }
-
-    .section p {
-        font-size: 1rem;
-    }
-
-    .section .banner {
-        height: 200px;
-    }
-
-    .container .section {
-        padding: 2rem 1rem;
-    }
-
-    .social-bar {
-        gap: 1.5rem;
-        padding: 0.6rem 1.5rem;
-        bottom: 2vh;
-    }
-
-    .social-bar .social-icon {
-        font-size: 1.5rem;
-    }
-
-    .portfolio-card h1 {
-        font-size: 1rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.8rem;
-    }
-}
-
-@media screen and (max-width: 599px) {
-    :root {
-        --card-height: 22vh;
-    }
-
-    .lander .content .photo {
-        width: 7rem;
-        height: 7rem;
-    }
-
-    .lander .content .title {
-        font-size: 2rem;
-        margin-top: 0;
-    }
-
-    .lander .content .banner {
-        font-size: 1rem;
-        margin-top: 0.5rem;
-    }
-
-    .section h1 {
-        font-size: 1.5rem;
-    }
-
-    .section p {
-        font-size: 0.95rem;
-    }
-
-    .section .banner {
-        height: 150px;
-    }
-
-    .portfolio-card gh {
-        font-size: 2rem;
-    }
-
-    .portfolio-card h1 {
-        font-size: 0.9rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.7rem;
-    }
-}
-
-@media screen and (max-width: 479px) {
-    :root {
-        --card-height: 35vh;
-        --card-width: calc((100vw - 60px) / 2);
-    }
-
-    .container {
-        width: 100%;
-        top: 1em;
-    }
-
-    .lander .content {
-        padding: 10px;
-        margin-top: 2vh;
-        margin-bottom: 4vh;
-    }
-
-    .lander .content .photo {
-        width: 6rem;
-        height: 6rem;
-    }
-
-    .lander .content .title {
-        font-size: 1.8rem;
-    }
-
-    .lander .content .banner {
-        font-size: 0.9rem;
-    }
-
-    .section h1 {
-        font-size: 1.4rem;
-    }
-
-    .section p {
-        font-size: 0.9rem;
-    }
-
-    .section .banner {
-        height: 120px;
-    }
-
-    .container .section {
-        padding: 1.5rem 0.5rem;
-    }
-
-    .social-bar {
-        gap: 1rem;
-        padding: 0.5rem 1rem;
-        bottom: 1vh;
-        flex-wrap: wrap;
-        max-width: 90%;
-    }
-
-    .social-bar .social-icon {
-        font-size: 1.3rem;
-    }
-
-    .portfolio-panel {
-        padding: 5px;
-    }
-
-    .portfolio-card {
-        margin: 5px;
-    }
-
-    .portfolio-card h1 {
-        font-size: 0.8rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.6rem;
-    }
-}
-
-@media screen and (max-width: 374px) {
-    :root {
-        --card-height: 32vh;
-        --card-width: calc(100vw - 40px);
-    }
-
-    .lander .content .title {
-        font-size: 1.5rem;
-    }
-
-    .lander .content .banner {
-        font-size: 0.8rem;
-    }
-
-    .section h1 {
-        font-size: 1.2rem;
-    }
-
-    .section p {
-        font-size: 0.85rem;
-    }
-
-    .portfolio-card h1 {
-        font-size: 0.7rem;
-    }
-
-    .portfolio-card h2 {
-        font-size: 0.5rem;
-    }
 }
