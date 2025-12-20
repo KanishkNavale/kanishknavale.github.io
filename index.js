@@ -69,3 +69,23 @@ document.addEventListener('wheel', function (e) {
         e.preventDefault();
     }
 }, { passive: false });
+
+function scaleUI(baseWidth = 1440, baseHeight = 900, minScale = 0.9, maxScale = 1.2) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const scaleW = w / baseWidth;
+    const scaleH = h / baseHeight;
+    const scale = Math.max(minScale, Math.min(Math.min(scaleW, scaleH), maxScale));
+    const root = document.documentElement;
+    root.style.setProperty('--scale', String(scale));
+    root.style.setProperty('--vw', `${w}px`);
+    root.style.setProperty('--vh', `${h}px`);
+}
+
+function initScaling() {
+    scaleUI();
+    window.addEventListener('resize', () => scaleUI());
+    window.addEventListener('orientationchange', () => scaleUI());
+}
+
+document.addEventListener('DOMContentLoaded', initScaling);
