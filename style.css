@@ -1,6 +1,6 @@
 :root {
     --accent-color: #00ff88;
-    --card-height: 35vh;
+    --card-height: 42vh;
     --card-width: calc(var(--card-height) / 1.6);
     --scale: 1;
     --vw: 100vw;
@@ -120,6 +120,9 @@ body::before {
     text-align: left;
     white-space: nowrap;
     margin-left: 0.1em;
+    min-height: clamp(1.5rem, calc(3rem * var(--scale)), 3.3rem);
+    display: flex;
+    align-items: center;
 }
 
 .haptics {
@@ -192,7 +195,7 @@ body::before {
 }
 
 .section .banner {
-    background-image: url(images/banner_2025.png);
+    background-image: url(images/banner_2026.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -257,8 +260,8 @@ body::before {
     border-radius: 10px;
     border: 1.5px solid var(--accent-color);
     width: calc(var(--card-width) * 1.3);
-    min-height: 180px;
-    padding: 16px;
+    min-height: 200px;
+    padding: 20px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -283,19 +286,27 @@ body::before {
 .portfolio-card h1 {
     color: #ffffff;
     font-family: "poppins-medium", sans-serif;
-    font-size: clamp(0.9em, calc(1.0em * var(--scale)), 1.1em);
+    font-size: clamp(0.85em, calc(0.95em * var(--scale)), 1.05em);
     text-align: center;
     flex-shrink: 0;
-    margin: 10px 0 0 0;
+    margin: 8px 0 0 0;
+    line-height: 1.3;
+    width: 100%;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .portfolio-card h2 {
     color: #ffffff;
     font-family: "poppins-medium", sans-serif;
-    font-size: clamp(0.75em, calc(0.85em * var(--scale)), 1.0em);
+    font-size: clamp(0.7em, calc(0.8em * var(--scale)), 0.9em);
     text-align: center;
     flex-shrink: 0;
-    margin: 10px 0 0 0;
+    margin: 5px 0 0 0;
+    line-height: 1.2;
+    width: 100%;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .portfolio-card gh {
@@ -322,7 +333,7 @@ body::before {
     backdrop-filter: blur(12px) brightness(1.1);
     border-radius: 10px;
     border: 1.5px solid var(--accent-color);
-    width: calc(var(--card-width) * 2.4);
+    width: calc(var(--card-width) * 2.0);
     min-height: 180px;
     padding: 16px;
     margin: 10px;
