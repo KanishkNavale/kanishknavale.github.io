@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-	<!--- metadata -->
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Language" content="EN">
-	<meta name="robots" content="allow">
-	<meta name="revisit-after" content="1 days">
-	<meta name="author" content="Kanishk Navale">
-	<meta name="description" content="Kanishk Navale's personal portfolio.">
-	<meta name="keywords"
-		content="Robotics, Deep Learning, Footballer, Artist, Machine Learning, Computer Vision, High Dimensional Data Learning, Optimization, Math for Intelligent Systems">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- favicons -->
+	<meta name="description" content="Kanishk Navale — AI & Robotics Engineer, Stuttgart">
+	<meta name="author" content="Kanishk Navale">
+	<title>Kanishk Navale</title>
 	<link rel="icon" type="image/png" href="rank.png">
 
-	<!-- Page title -->
-	<title>Kanishk Navale</title>
-
-	<!-- Link to external CSS file -->
-	<link rel="stylesheet" href="style.css">
-
-	<!-- Social icon links -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Google tag (gtag.js) -->
@@ -36,203 +26,1116 @@
 		gtag('config', 'G-9VCTKJE6GT');
 	</script>
 
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		:root {
+			--g: #00ff88;
+			--g2: #00cc66;
+			--g3: #00ff880d;
+			--bg: #030d06;
+			--glass: rgba(255, 255, 255, 0.0001);
+			--glass-border: rgba(255, 255, 255, 0.01);
+			--glass-border-hover: rgba(0, 255, 136, 0.28);
+			--text: #c8f0d8;
+			--muted: rgba(170, 230, 195, 0.5);
+			--gap: 9px;
+			--r: 14px;
+		}
+
+		html,
+		body {
+			height: 100%;
+			background: var(--bg);
+			font-family: 'Exo 2', sans-serif;
+			color: var(--text);
+			overflow: hidden;
+			font-size: 18px;
+		}
+
+		/* ── THREE.JS BG ─────────────────────────────── */
+		#bg {
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		/* ── TOP GLOW LINE ──────────────────────────── */
+		body::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 8%;
+			right: 8%;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, var(--g), transparent);
+			z-index: 10;
+			opacity: 0.6;
+		}
+
+		/* ── GRID WRAPPER ───────────────────────────── */
+		.wrapper {
+			position: relative;
+			z-index: 1;
+			width: 100vw;
+			height: 100vh;
+			padding: var(--gap);
+		}
+
+		/* ── BENTO GRID ─────────────────────────────── */
+		.grid {
+			display: grid;
+			width: 100%;
+			height: 100%;
+			gap: var(--gap);
+			grid-template-columns: 26fr 42fr 32fr;
+			grid-template-rows: 57fr 43fr;
+			grid-template-areas:
+				"hero  projects career"
+				"about edu      career";
+		}
+
+		/* ── TILE BASE ──────────────────────────────── */
+		.tile {
+			background: var(--glass);
+			border: 1px solid var(--glass-border);
+			border-radius: var(--r);
+			backdrop-filter: blur(8px) saturate(100%) brightness(1.2);
+			-webkit-backdrop-filter: blur(8px) saturate(100%) brightness(1.2);
+			padding: 18px 18px 14px;
+			overflow: hidden;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+			transition: border-color 0.3s;
+		}
+
+		.tile::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: var(--r);
+			background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+			pointer-events: none;
+		}
+
+		.tile:hover {
+			border-color: var(--glass-border-hover);
+		}
+
+		.t-hero {
+			grid-area: hero;
+			animation-delay: 0.04s;
+		}
+
+		.t-projects {
+			grid-area: projects;
+			animation-delay: 0.1s;
+		}
+
+		.t-career {
+			grid-area: career;
+			animation-delay: 0.16s;
+		}
+
+		.t-about {
+			grid-area: about;
+			animation-delay: 0.22s;
+		}
+
+		.t-edu {
+			grid-area: edu;
+			animation-delay: 0.28s;
+		}
+
+		@keyframes fadeUp {
+			from {
+				opacity: 0;
+				transform: translateY(14px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* ── TILE LABEL ─────────────────────────────── */
+		.lbl {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.6rem;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+			color: var(--g);
+			opacity: 0.75;
+		}
+
+		.tile-head {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 12px;
+			flex-shrink: 0;
+		}
+
+		.scroll-hint {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.52rem;
+			color: var(--muted);
+			letter-spacing: 0.08em;
+			animation: blink 2.4s ease-in-out infinite;
+		}
+
+		@keyframes blink {
+
+			0%,
+			100% {
+				opacity: 0.35;
+			}
+
+			50% {
+				opacity: 1;
+			}
+		}
+
+		/* ── SCROLLERS ──────────────────────────────── */
+		.hscroll {
+			display: flex;
+			gap: 10px;
+			overflow-x: auto;
+			overflow-y: hidden;
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+			flex: 1;
+			padding-bottom: 2px;
+		}
+
+		.hscroll::-webkit-scrollbar {
+			display: none;
+		}
+
+		.vscroll {
+			flex: 1;
+			overflow-y: auto;
+			overflow-x: hidden;
+			scroll-snap-type: y proximity;
+			scrollbar-width: none;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.vscroll::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* ── HERO TILE ──────────────────────────────── */
+		.t-hero {
+			justify-content: space-between;
+		}
+
+		.hero-top {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			flex: 1;
+		}
+
+		.avatar-wrap {
+			position: relative;
+			width: 80px;
+			height: 80px;
+			flex-shrink: 0;
+		}
+
+		.avatar-ring {
+			position: absolute;
+			inset: -3px;
+			border-radius: 50%;
+			background: conic-gradient(var(--g) 0deg, var(--g2) 180deg, transparent 260deg, var(--g) 360deg);
+			animation: spin 10s linear infinite;
+		}
+
+		.avatar {
+			position: absolute;
+			inset: 3px;
+			border-radius: 50%;
+			background-image: url(images/profile.png);
+			background-size: cover;
+			background-position: center;
+			background-color: #0a1c0e;
+			z-index: 1;
+		}
+
+		@keyframes spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.hero-name {
+			font-weight: 900;
+			font-size: clamp(1.55rem, 2.9vw, 2.6rem);
+			line-height: 1.0;
+			letter-spacing: -0.025em;
+			color: #fff;
+			text-shadow: 0 0 50px rgba(0, 255, 136, 0.25);
+		}
+
+		.hero-badges {
+			display: flex;
+			gap: 5px;
+			flex-wrap: wrap;
+			margin-top: 6px;
+		}
+
+		.badge {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.55rem;
+			padding: 2px 8px;
+			border: 1px solid var(--glass-border);
+			border-radius: 4px;
+			color: var(--muted);
+			background: rgba(255, 255, 255, 0.04);
+			letter-spacing: 0.04em;
+		}
+
+		.hero-ticker {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: clamp(0.65rem, 1vw, 0.8rem);
+			color: var(--g);
+			min-height: 1.3em;
+			margin-top: 10px;
+			letter-spacing: 0.02em;
+		}
+
+		.tag-cloud {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 5px;
+			padding-top: 10px;
+			border-top: 1px solid var(--glass-border);
+		}
+
+		.tag {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.54rem;
+			padding: 3px 9px;
+			border-radius: 20px;
+			border: 1px solid rgba(0, 255, 136, 0.22);
+			color: var(--g2);
+			background: rgba(255, 255, 255, 0.04);
+			letter-spacing: 0.06em;
+			cursor: default;
+			transition: all 0.18s;
+		}
+
+		.tag:hover {
+			background: rgba(0, 255, 136, 0.14);
+			border-color: var(--g);
+			color: var(--g);
+			transform: translateY(-1px);
+		}
+
+		/* ── PROJECTS TILE ──────────────────────────── */
+		.t-projects .proj-card {
+			flex: 0 0 auto;
+			width: min(240px, 90%);
+			border-radius: 10px;
+			border: 1px solid var(--glass-border);
+			background: rgba(255, 255, 255, 0.03);
+			padding: 12px;
+			display: flex;
+			flex-direction: column;
+			gap: 7px;
+			scroll-snap-align: start;
+			transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+		}
+
+		.proj-card:hover {
+			border-color: rgba(0, 255, 136, 0.48);
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgba(0, 255, 136, 0.1);
+		}
+
+		.proj-thumb {
+			width: 100%;
+			height: 60%;
+			object-fit: cover;
+			border-radius: 6px;
+			background: #0a1c0e;
+			display: block;
+			flex-shrink: 0;
+		}
+
+		.proj-title {
+			font-weight: 700;
+			font-size: 0.78rem;
+			color: #fff;
+			line-height: 1.3;
+		}
+
+		.proj-sub {
+			font-size: 0.62rem;
+			font-family: 'JetBrains Mono', monospace;
+			color: var(--muted);
+		}
+
+		.proj-link {
+			margin-top: auto;
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			font-size: 0.6rem;
+			font-family: 'JetBrains Mono', monospace;
+			color: var(--g);
+			text-decoration: none;
+			transition: opacity 0.2s;
+			padding-top: 4px;
+		}
+
+		.proj-link:hover {
+			opacity: 0.65;
+		}
+
+		/* ── CAREER TILE ────────────────────────────── */
+		.t-career .career-item {
+			flex-shrink: 0;
+			border-radius: 10px;
+			border: 1px solid var(--glass-border);
+			padding: 13px 14px;
+			background: rgba(255, 255, 255, 0.02);
+			scroll-snap-align: start;
+			transition: border-color 0.22s, box-shadow 0.22s;
+			position: relative;
+		}
+
+		.career-item:hover {
+			border-color: rgba(0, 255, 136, 0.42);
+			box-shadow: 0 4px 20px rgba(0, 255, 136, 0.08);
+		}
+
+		.career-item::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 12px;
+			bottom: 12px;
+			width: 2px;
+			background: linear-gradient(180deg, var(--g), transparent);
+			border-radius: 1px;
+			opacity: 0;
+			transition: opacity 0.22s;
+		}
+
+		.career-item:hover::before {
+			opacity: 1;
+		}
+
+		.ci-co {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.68rem;
+			font-weight: 500;
+			color: var(--g);
+			letter-spacing: 0.03em;
+		}
+
+		.ci-role {
+			font-size: 0.75rem;
+			font-weight: 700;
+			color: #fff;
+			margin-top: 2px;
+		}
+
+		.ci-period {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.55rem;
+			color: var(--muted);
+			margin-top: 4px;
+			letter-spacing: 0.04em;
+		}
+
+		.ci-desc {
+			font-size: 0.66rem;
+			color: var(--muted);
+			margin-top: 8px;
+			line-height: 1.55;
+			font-style: italic;
+		}
+
+		/* ── ABOUT TILE ─────────────────────────────── */
+		.t-about {
+			justify-content: space-between;
+		}
+
+		.about-body {
+			font-size: clamp(0.68rem, 1vw, 0.82rem);
+			line-height: 1.75;
+			color: var(--muted);
+			font-style: italic;
+			flex: 1;
+			overflow-y: auto;
+			scrollbar-width: none;
+			padding-right: 2px;
+		}
+
+		.about-body::-webkit-scrollbar {
+			display: none;
+		}
+
+		.about-body em {
+			color: var(--g);
+			font-style: normal;
+		}
+
+		.socials {
+			display: flex;
+			gap: 8px;
+			margin-top: 14px;
+			flex-wrap: wrap;
+			padding-top: 12px;
+			border-top: 1px solid var(--glass-border);
+			flex-shrink: 0;
+		}
+
+		.soc {
+			width: 32px;
+			height: 32px;
+			border-radius: 8px;
+			border: 1px solid var(--glass-border);
+			background: rgba(255, 255, 255, 0.04);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--muted);
+			text-decoration: none;
+			font-size: 0.85rem;
+			transition: all 0.2s;
+		}
+
+		.soc:hover {
+			color: var(--g);
+			border-color: var(--g);
+			background: rgba(0, 255, 136, 0.1);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 14px rgba(0, 255, 136, 0.2);
+		}
+
+		/* ── EDU TILE ───────────────────────────────── */
+		.t-edu .edu-card {
+			flex: 0 0 auto;
+			width: min(210px, 82%);
+			border-radius: 10px;
+			border: 1px solid var(--glass-border);
+			background: rgba(255, 255, 255, 0.03);
+			padding: 13px;
+			scroll-snap-align: start;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			transition: border-color 0.22s, transform 0.22s;
+		}
+
+		.edu-card:hover {
+			border-color: rgba(0, 255, 136, 0.45);
+			transform: translateY(-2px);
+		}
+
+		.edu-deg {
+			font-weight: 700;
+			font-size: 0.75rem;
+			color: var(--g);
+			line-height: 1.3;
+		}
+
+		.edu-school {
+			font-size: 0.72rem;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		.edu-period {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.54rem;
+			color: var(--muted);
+			letter-spacing: 0.04em;
+		}
+
+		.edu-desc {
+			font-size: 0.63rem;
+			color: var(--muted);
+			line-height: 1.5;
+			font-style: italic;
+			margin-top: 4px;
+		}
+
+		/* ── DIVIDER LINES ──────────────────────────── */
+		.vline {
+			width: 1px;
+			height: 100%;
+			background: linear-gradient(180deg, transparent, var(--g), transparent);
+			opacity: 0.2;
+			flex-shrink: 0;
+		}
+
+		/* ── MOBILE BREAKPOINTS ─────────────────────── */
+		@media (max-width: 960px) {
+
+			html,
+			body {
+				overflow: auto;
+			}
+
+			.wrapper {
+				height: auto;
+				min-height: 100vh;
+			}
+
+			.grid {
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: auto auto auto auto auto;
+				grid-template-areas:
+					"hero    hero"
+					"about   about"
+					"projects projects"
+					"career  career"
+					"edu     edu";
+				height: auto;
+			}
+
+			.t-hero {
+				min-height: 300px;
+			}
+
+			.t-projects {
+				height: 280px;
+			}
+
+			.t-career {
+				height: 420px;
+			}
+
+			.t-edu {
+				height: 260px;
+			}
+		}
+
+		@media (max-width: 560px) {
+			.grid {
+				grid-template-columns: 1fr;
+				grid-template-areas:
+					"hero"
+					"about"
+					"projects"
+					"career"
+					"edu";
+			}
+
+			.proj-card {
+				width: min(220px, 92%);
+			}
+
+			.edu-card {
+				width: min(200px, 85%);
+			}
+
+			.hero-name {
+				font-size: 2.1rem;
+			}
+		}
+
+		/* ── GRID DOTS BG PATTERN ───────────────────── */
+		.wrapper::before {
+			content: '';
+			position: fixed;
+			inset: 0;
+			background-image: radial-gradient(circle, rgba(0, 255, 136, 0.06) 1px, transparent 1px);
+			background-size: 28px 28px;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		/* ── TOOLTIP ────────────────────────────────── */
+		[title] {
+			position: relative;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<div class="lander">
-			<div class="content">
-				<div class="photo"></div>
-				<div class="writer">
-					<div class="title">Kanishk Navale</div>
-					<div class="banner" id="banner"></div>
+
+	<canvas id="bg"></canvas>
+
+	<div class="wrapper">
+		<div class="grid">
+
+			<!-- ── HERO ─────────────────────────────────── -->
+			<div class="tile t-hero">
+				<div class="hero-top">
+					<div class="avatar-wrap">
+						<div class="avatar-ring"></div>
+						<div class="avatar"></div>
+					</div>
+					<div>
+						<h1 class="hero-name">Kanishk<br>Navale</h1>
+						<div class="hero-badges">
+							<span class="badge">Stuttgart 🇩🇪</span>
+						</div>
+						<div class="hero-ticker" id="ticker"></div>
+					</div>
+				</div>
+				<div class="tag-cloud">
+					<span class="tag">Fine Arts</span>
+					<span class="tag">Robotics</span>
+					<span class="tag">Math Optimization</span>
+					<span class="tag">Reinforcement Learning</span>
+					<span class="tag">Deep Learning</span>
+					<span class="tag">Computer Vision</span>
+					<span class="tag">AI Agents</span>
+
 				</div>
 			</div>
-		</div>
 
-		<div class="section">
-			<h1>About Me</h1>
-			<div class="banner"></div>
-			<p>Before code or robots, there were pencils and sketches, my first tools for understanding the world.
-				Designing & imagining structures led me into robotics, where ideas transformed into moving, tactile
-				systems.
-				AI expanded that horizon, giving me the ability to build machines that not only act, but also perceive
-				and learn. I’m growing by embracing the fusion of art, mechanics, and intelligence.
-			</p>
-		</div>
-
-		<div class="section">
-			<h1>Projects</h1>
-			<p>Here are a few hand-picked projects of mine.</p>
-			<div class="portfolio-panel">
-				<div class="portfolio-card">
-					<img src="images/portfolio/painting.jpg" loading="lazy" alt="Delta Robot">
-					<h1>Boogie Springerland</h1>
-					<h2>Fine Arts</h2>
-					<gh><a href="https://github.com/KanishkNavale/Kunstsammlung"><i class="fa fa-github"></i></a>
-					</gh>
+			<!-- ── PROJECTS ──────────────────────────────── -->
+			<div class="tile t-projects">
+				<div class="tile-head">
+					<span class="lbl">// Projects</span>
+					<span class="scroll-hint">drag or scroll →</span>
 				</div>
+				<div class="hscroll">
 
-				<div class="portfolio-card">
-					<img src="images/portfolio/deltarobot.png" loading="lazy" alt="Delta Robot">
-					<h1>Delta Robot</h1>
-					<h2>Motion Control</h2>
-					<gh><a href="https://github.com/KanishkNavale/TRIS-1A-Delta-Robot"><i class="fa fa-github"></i></a>
-					</gh>
-				</div>
+					<div class="proj-card">
+						<img class="proj-thumb" src="images/portfolio/painting.jpg" alt="Der Föhnwind" loading="lazy">
+						<div class="proj-title">Der Föhnwind</div>
+						<div class="proj-sub">Fine Arts</div>
+						<a class="proj-link" href="https://github.com/KanishkNavale/Kunstsammlung" target="_blank"
+							rel="noopener">
+							<i class="fa fa-github"></i> Kunstsammlung
+						</a>
+					</div>
 
-				<div class="portfolio-card">
-					<img src="images/portfolio/linear.gif" loading="lazy" alt="Delta Robot">
-					<h1>Robot Physics Engine</h1>
-					<h2>Constrained Optimization</h2>
-					<gh><a href="https://github.com/KanishkNavale/Robot-Physics-Engine"><i class="fa fa-github"></i></a>
-					</gh>
-				</div>
+					<div class="proj-card">
+						<img class="proj-thumb" src="images/portfolio/deltarobot.png" alt="Delta Robot" loading="lazy">
+						<div class="proj-title">Delta Robot</div>
+						<div class="proj-sub">Motion Control</div>
+						<a class="proj-link" href="https://github.com/KanishkNavale/TRIS-1A-Delta-Robot" target="_blank"
+							rel="noopener">
+							<i class="fa fa-github"></i> TRIS-1A
+						</a>
+					</div>
 
-				<div class="portfolio-card">
-					<img src="images/portfolio/spotlight.gif" loading="lazy" alt="Delta Robot">
-					<h1>AI for Robot Tasks</h1>
-					<h2>Deep RL for Robot Task Planning</h2>
-					<gh><a href="https://github.com/KanishkNavale/AI-for-Robot-Tasks"><i class="fa fa-github"></i></a>
-					</gh>
-				</div>
+					<div class="proj-card">
+						<img class="proj-thumb" src="images/portfolio/linear.gif" alt="Robot Physics Engine"
+							loading="lazy">
+						<div class="proj-title">Robot Physics Engine</div>
+						<div class="proj-sub">Constrained Optimization</div>
+						<a class="proj-link" href="https://github.com/KanishkNavale/Robot-Physics-Engine"
+							target="_blank" rel="noopener">
+							<i class="fa fa-github"></i> Physics Engine
+						</a>
+					</div>
 
-				<div class="portfolio-card">
-					<img src="images/portfolio/keypointnet.gif" loading="lazy" alt="Delta Robot">
-					<h1>Single Label Object Grasping</h1>
-					<h2>Object Aware Robot Control</h2>
-					<gh><a href="https://github.com/KanishkNavale/SLOG"><i class="fa fa-github"></i></a>
-					</gh>
-				</div>
+					<div class="proj-card">
+						<img class="proj-thumb" src="images/portfolio/spotlight.gif" alt="AI for Robot Tasks"
+							loading="lazy">
+						<div class="proj-title">AI for Robot Tasks</div>
+						<div class="proj-sub">Deep Reinforcement Learning</div>
+						<a class="proj-link" href="https://github.com/KanishkNavale/AI-for-Robot-Tasks" target="_blank"
+							rel="noopener">
+							<i class="fa fa-github"></i> AI for Robot Tasks
+						</a>
+					</div>
 
-			</div>
-		</div>
+					<div class="proj-card">
+						<img class="proj-thumb" src="images/portfolio/keypointnet.gif" alt="SLOG" loading="lazy">
+						<div class="proj-title">Single Label Object Grasping</div>
+						<div class="proj-sub">Object-Aware Robot Control</div>
+						<a class="proj-link" href="https://github.com/KanishkNavale/SLOG" target="_blank"
+							rel="noopener">
+							<i class="fa fa-github"></i> M.Sc. Thesis
+						</a>
+					</div>
 
-		<div class="section">
-			<h1>Career Odyssey</h1>
-			<p>Mirrors of my professional journey, highlighting key roles and experiences.</p>
-			<div class="portfolio-panel">
-
-				<div class="resume-card">
-					<span class="resume-company">Sereact GmbH.</span>
-					<span class="resume-position">Senior Deep Learning Engineer</span>
-					<span class="resume-years">11.2022 – 01.2024, Stuttgart - Germany</span>
-					<p class="resume-desc">
-						Led the design & development of a vision-based LLM for robots. Initially, fine-tuned
-						a foundation model with LoRA. Later, integrated it with a 'Point Transformer-2' architecture
-						using modified geodesic multi-head self-attention for enhanced robot & object interaction
-						boosting number of pick & place operations.
-					</p>
-				</div>
-
-				<div class="resume-card">
-					<span class="resume-company">Sereact GmbH.</span>
-					<span class="resume-position">Master Thesis Student</span>
-					<span class="resume-years">05.2022 – 11.2022, Stuttgart - Germany</span>
-					<p class="resume-desc">
-						Developed an end-to-end deep learning model that regresses the generalised object
-						representations as visual dense descriptors (embeddings) while additionally regressing object
-						pose invariant 3D keypoints. The DNN (Deep Neural Network) was optimised using a self-supervised
-						geometry aware loss functions, eliminating the need for manual annotated labels. The master
-						thesis was awarded a '1.3' which is an excellent grade.
-					</p>
-				</div>
-
-				<div class="resume-card">
-					<span class="resume-company">Bosch Center for Artificial Intelligence</span>
-					<span class="resume-position">Intern - Reinforcement Learning & Planning</span>
-					<span class="resume-years">11.2021 – 04.2022, Renningen - Germany</span>
-					<p class="resume-desc">
-						Implemented oriented bounding-box pruning & grouping for visual object pose registration using
-						a DNN regressed feature space. The DNN feature space was optimized on the pixelwise
-						distributional loss & agglomerative hierarchical clustering.
-					</p>
-				</div>
-
-				<div class="resume-card">
-					<span class="resume-company">Max Planck Institute for Intelligent Systems</span>
-					<span class="resume-position">Wissenschaftliche Hilfskraft</span>
-					<span class="resume-years">04.2021 – 10.2021, Stuttgart - Germany</span>
-					<p class="resume-desc">
-						Integrated a robot physics engine from scratch, introducing hybrid motion force control to the
-						NYU-Finger robot (a leg of a quadruped robot) with the in-house fabricated capacitive haptic
-						sensor with robust real-time state estimation.
-
-					</p>
-				</div>
-
-				<div class="resume-card">
-					<span class="resume-company">FANUC India Pvt. Ltd.</span>
-					<span class="resume-position">Robot System Engineer</span>
-					<span class="resume-years">06.2016 – 08.2018, Bangalore - India</span>
-					<p class="resume-desc">
-						Commissioned 48 industrial robots, 2D/3D vision, machine tending & IoT systems as part of the
-						design & site deployment team. The technical & commercial proposals pitched generated revenues
-						more than the set yearly target.
-					</p>
 				</div>
 			</div>
-		</div>
 
-		<div class="section">
-			<h1>School Compass</h1>
-			<p>These schools I attended are roots for my professional journey.</p>
-			<div class="portfolio-panel">
-
-				<div class="resume-card">
-					<span class="resume-company">Computer Science - Autonomous Systems</span>
-					<span class="resume-position">Master of Science (M.Sc.), Universität Stuttgart</span>
-					<span class="resume-years">10.2019 – 10.2022, Stuttgart - Germany</span>
-					<p class="resume-desc">
-						Improved robot path planning by 60% fewer episode lengths using DDPG agent equipped with PER +
-						HER + PENE methodologies using Tensorflow 2 & PyTorch.
-						Furthermore, designed information maximization variation encoder (Info-VAE) for high data
-						dimensional analysis & decomposition to its latent state, securing top-1 in the class.
-					</p>
+			<!-- ── CAREER (spans 2 rows) ─────────────────── -->
+			<div class="tile t-career">
+				<div class="tile-head">
+					<span class="lbl">// Career Odyssey</span>
+					<span class="scroll-hint">↓ scroll</span>
 				</div>
+				<div class="vscroll">
 
-				<div class="resume-card">
-					<span class="resume-company">Automation & Robotics</span>
-					<span class="resume-position">Bachelor of Engineering (B.E.), BVBCET</span>
-					<span class="resume-years">06.2012 – 06.2016, Hubli - India</span>
-					<p class="resume-desc">
-						Led student team of size 10 to participate in ABU-Robocon international event engineering 2
-						badminton playing robot. Furthermore, built a delta-style parallel robot for the bachelor's
-						capstone project. Graduated with '8.99' CGPA which is equivalent to 'First Class with
-						Distinction'.
-					</p>
+					<div class="career-item">
+						<div class="ci-co">Greenbone AG</div>
+						<div class="ci-role">AI Engineer</div>
+						<div class="ci-period">02.2024 – Present · Stuttgart, Germany</div>
+						<div class="ci-desc">Engineering secure AI-agents and intelligent vulnerability management
+							systems, pushing the boundary of what autonomous security tooling can do.</div>
+					</div>
+
+					<div class="career-item">
+						<div class="ci-co">Sereact GmbH</div>
+						<div class="ci-role">Senior Deep Learning Engineer</div>
+						<div class="ci-period">11.2022 – 01.2024 · Stuttgart, Germany</div>
+						<div class="ci-desc">Led the design & development of a vision-based LLM for robots. Initially,
+							fine-tuned a foundation model with LoRA. Later, integrated it with a 'Point Transformer-2'
+							architecture using modified geodesic multi-head self-attention for enhanced robot & object
+							interaction boosting number of pick & place operations.</div>
+					</div>
+
+					<div class="career-item">
+						<div class="ci-co">Sereact GmbH</div>
+						<div class="ci-role">Master Thesis Student</div>
+						<div class="ci-period">05.2022 – 11.2022 · Stuttgart, Germany</div>
+						<div class="ci-desc">Developed an end-to-end deep learning model that regresses the
+							generalised
+							object representations as visual dense descriptors (embeddings) while additionally
+							regressing object pose invariant 3D keypoints. The DNN (Deep Neural Network) was
+							optimised
+							using a self-supervised geometry aware loss functions, eliminating the need for manual
+							annotated labels. The master thesis was awarded a '1.3' which is an excellent grade.
+						</div>
+					</div>
+
+					<div class="career-item">
+						<div class="ci-co">Bosch Center for AI</div>
+						<div class="ci-role">Intern — Reinforcement Learning & Planning</div>
+						<div class="ci-period">11.2021 – 04.2022 · Renningen, Germany</div>
+						<div class="ci-desc">Implemented oriented bounding-box pruning & grouping for visual object
+							pose
+							registration using a DNN regressed feature space. The DNN feature space was optimized on
+							the
+							pixelwise distributional loss & agglomerative hierarchical clustering.</div>
+					</div>
+
+					<div class="career-item">
+						<div class="ci-co">Max Planck Institute</div>
+						<div class="ci-role">Work Student - Research Assistant</div>
+						<div class="ci-period">04.2021 – 10.2021 · Stuttgart, Germany</div>
+						<div class="ci-desc">Integrated a robot physics engine from scratch, introducing hybrid
+							motion
+							force control to the NYU-Finger robot (a leg of a quadruped robot) with the in-house
+							fabricated capacitive haptic sensor with robust real-time state estimation.</div>
+					</div>
+
+					<div class="career-item">
+						<div class="ci-co">FANUC India Pvt. Ltd.</div>
+						<div class="ci-role">Robot System Engineer</div>
+						<div class="ci-period">06.2016 – 08.2018 · Bangalore, India</div>
+						<div class="ci-desc">Commissioned 48 industrial robots, 2D/3D vision, machine tending & IoT
+							systems as part of the design & site deployment team. The technical & commercial
+							proposals
+							pitched generated revenues more than the set yearly target.
+						</div>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
-	</div>
 
-	<div class="haptics">
-		<a href="https://linkedin.com/in/kanishknavale" target="_blank" class="haptics-icon linkedin"
-			aria-label="LinkedIn">
-			<i class="fa fa-linkedin"></i>
-		</a>
-		<a href="mailto:navalekanishk@gmail.com" target="_blank" class="haptics-icon gmail" aria-label="Gmail">
-			<i class="fa fa-envelope"></i>
-		</a>
-		<a href="https://github.com/KanishkNavale" target="_blank" class="haptics-icon github" aria-label="GitHub">
-			<i class="fa fa-github"></i>
-		</a>
-		<a href="https://instagram.com/kaniiiboiii" target="_blank" class="haptics-icon instagram"
-			aria-label="Instagram">
-			<i class="fa fa-instagram"></i>
-		</a>
-		<a href="#" class="haptics-icon location" aria-label="Location" tabindex="-1" style="position: relative;">
-			<i class="fa fa-map-marker"></i>
-			<span class="flag-tooltip">Stuttgart, DE 🇩🇪</span>
-		</a>
-	</div>
+			<!-- ── ABOUT ──────────────────────────────────── -->
+			<div class="tile t-about">
+				<div class="tile-head">
+					<span class="lbl">// About</span>
+				</div>
+				<p class="about-body">
+					Before code or robots, there were <em>pencils and sketches</em> — my first tools for
+					understanding
+					the world. Designing &amp; imagining structures led me into <em>robotics</em>, where ideas
+					transformed into moving, tactile systems. <em>AI</em> expanded that horizon, giving me the
+					ability
+					to build machines that not only act, but also perceive and learn. I'm growing by embracing the
+					fusion of <em>art, mechanics, and intelligence</em>.
+				</p>
+				<div class="socials">
+					<a class="soc" href="https://linkedin.com/in/kanishknavale" target="_blank" rel="noopener"
+						title="LinkedIn">
+						<i class="fa fa-linkedin"></i>
+					</a>
+					<a class="soc" href="mailto:navalekanishk@gmail.com" title="Email">
+						<i class="fa fa-envelope"></i>
+					</a>
+					<a class="soc" href="https://github.com/KanishkNavale" target="_blank" rel="noopener"
+						title="GitHub">
+						<i class="fa fa-github"></i>
+					</a>
+					<a class="soc" href="https://instagram.com/kaniiiboiii" target="_blank" rel="noopener"
+						title="Instagram">
+						<i class="fa fa-instagram"></i>
+					</a>
+					<a class="soc" href="https://orcid.org/0000-0002-3297-1835" target="_blank" rel="noopener"
+						title="ORCID">
+						<i class="fa fa-graduation-cap"></i>
+					</a>
+				</div>
+			</div>
 
-	<footer>
-		<p>© Kanishk Navale. Background <a href="http://www.freepik.com">designed by GarryKillian / Freepik</a></p>
-	</footer>
+			<!-- ── EDUCATION ──────────────────────────────── -->
+			<div class="tile t-edu">
+				<div class="tile-head">
+					<span class="lbl">// School Compass</span>
+					<span class="scroll-hint">→</span>
+				</div>
+				<div class="hscroll">
 
-	<script src="index.js" defer></script>
+					<div class="edu-card">
+						<div class="edu-deg">M.Sc. Computer Science</div>
+						<div class="edu-school">Universität Stuttgart 🇩🇪</div>
+						<div class="edu-period">10.2019 – 10.2022</div>
+						<div class="edu-desc">Designed information maximization variation encoder (Info-VAE) for
+							high
+							data dimensional analysis & decomposition to its latent state, securing top-2 in the
+							class.
+						</div>
+					</div>
+
+					<div class="edu-card">
+						<div class="edu-deg">B.E. Automation & Robotics</div>
+						<div class="edu-school">BVBCET 🇮🇳</div>
+						<div class="edu-period">06.2012 – 06.2016</div>
+						<div class="edu-desc">Led student team of size 10 to participate in ABU-Robocon
+							international
+							event engineering 2 badminton playing robot. Furthermore, built a delta-style parallel
+							robot
+							for the bachelor's graduation project.
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div><!-- .grid -->
+	</div><!-- .wrapper -->
+
+	<!-- THREE.JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+	<script>
+		/* ================================================================
+		   THREE.JS — Neural Network Background
+		================================================================ */
+		(function () {
+			const canvas = document.getElementById('bg');
+			const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setClearColor(0x030d06, 1);
+
+			const scene = new THREE.Scene();
+			scene.fog = new THREE.FogExp2(0x030d06, 0.007);
+
+			const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+			camera.position.z = 130;
+
+			/* ── Nodes ── */
+			const N = 70;
+			const nodes = [];
+			const vels = [];
+
+			const geoNodes = new THREE.BufferGeometry();
+			const posArr = new Float32Array(N * 3);
+			const colArr = new Float32Array(N * 3);
+
+			for (let i = 0; i < N; i++) {
+				const x = (Math.random() - 0.5) * 220;
+				const y = (Math.random() - 0.5) * 180;
+				const z = (Math.random() - 0.5) * 80;
+				nodes.push(new THREE.Vector3(x, y, z));
+				vels.push(new THREE.Vector3(
+					(Math.random() - 0.5) * 0.04,
+					(Math.random() - 0.5) * 0.04,
+					(Math.random() - 0.5) * 0.018
+				));
+				posArr[i * 3] = x;
+				posArr[i * 3 + 1] = y;
+				posArr[i * 3 + 2] = z;
+				const b = 0.25 + Math.random() * 0.75;
+				colArr[i * 3] = 0;
+				colArr[i * 3 + 1] = b;
+				colArr[i * 3 + 2] = b * 0.45;
+			}
+
+			geoNodes.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+			geoNodes.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
+
+			const matNodes = new THREE.PointsMaterial({
+				size: 2.8,
+				vertexColors: true,
+				transparent: true,
+				opacity: 0.65,
+				sizeAttenuation: true
+			});
+			scene.add(new THREE.Points(geoNodes, matNodes));
+
+			/* ── Edges ── */
+			const MAX_EDGES = N * N;
+			const geoEdges = new THREE.BufferGeometry();
+			const edgePos = new Float32Array(MAX_EDGES * 6);
+			const edgeCol = new Float32Array(MAX_EDGES * 6);
+			geoEdges.setAttribute('position', new THREE.BufferAttribute(edgePos, 3));
+			geoEdges.setAttribute('color', new THREE.BufferAttribute(edgeCol, 3));
+
+			const matEdges = new THREE.LineBasicMaterial({
+				vertexColors: true,
+				transparent: true,
+				opacity: 0.28
+			});
+			const edges = new THREE.LineSegments(geoEdges, matEdges);
+			scene.add(edges);
+
+			const MAX_DIST = 48;
+
+			function rebuildEdges() {
+				let ei = 0;
+				const ep = geoEdges.attributes.position.array;
+				const ec = geoEdges.attributes.color.array;
+				for (let i = 0; i < N; i++) {
+					for (let j = i + 1; j < N; j++) {
+						const d = nodes[i].distanceTo(nodes[j]);
+						if (d < MAX_DIST) {
+							const s = (1 - d / MAX_DIST) * 0.9;
+							ep[ei * 6] = nodes[i].x; ep[ei * 6 + 1] = nodes[i].y; ep[ei * 6 + 2] = nodes[i].z;
+							ep[ei * 6 + 3] = nodes[j].x; ep[ei * 6 + 4] = nodes[j].y; ep[ei * 6 + 5] = nodes[j].z;
+							ec[ei * 6] = 0; ec[ei * 6 + 1] = s; ec[ei * 6 + 2] = s * 0.4;
+							ec[ei * 6 + 3] = 0; ec[ei * 6 + 4] = s; ec[ei * 6 + 5] = s * 0.4;
+							ei++;
+						}
+					}
+				}
+				geoEdges.setDrawRange(0, ei * 2);
+				geoEdges.attributes.position.needsUpdate = true;
+				geoEdges.attributes.color.needsUpdate = true;
+			}
+
+			/* ── Animate ── */
+			let t = 0;
+			function tick() {
+				requestAnimationFrame(tick);
+				t += 0.0008;
+
+				const np = geoNodes.attributes.position.array;
+				for (let i = 0; i < N; i++) {
+					nodes[i].add(vels[i]);
+					if (Math.abs(nodes[i].x) > 110) vels[i].x *= -1;
+					if (Math.abs(nodes[i].y) > 90) vels[i].y *= -1;
+					if (Math.abs(nodes[i].z) > 40) vels[i].z *= -1;
+					np[i * 3] = nodes[i].x;
+					np[i * 3 + 1] = nodes[i].y;
+					np[i * 3 + 2] = nodes[i].z;
+				}
+				geoNodes.attributes.position.needsUpdate = true;
+
+				rebuildEdges();
+
+				camera.position.x = Math.sin(t * 0.6) * 6;
+				camera.position.y = Math.cos(t * 0.45) * 4;
+				camera.lookAt(0, 0, 0);
+
+				renderer.render(scene, camera);
+			}
+			tick();
+
+			window.addEventListener('resize', () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			});
+		})();
+
+
+		/* ================================================================
+		   HACKER TEXT TICKER
+		================================================================ */
+		(function () {
+			const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*<>/\\';
+			const PHRASES = [
+				"Hello! 👋  Servus! 😇  नमस्ते! 🙏",
+				"Artist 🤖",
+				"AI & Robotics Engineer ✨",
+				"Building secure AI-Agents 🧠",
+				"Welcome to my portfolio 🚀"
+			];
+
+			let phraseIdx = 0;
+			const el = document.getElementById('ticker');
+			if (!el) return;
+
+			function scramble(phrase, done) {
+				const len = phrase.length;
+				let display = Array.from({ length: len }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]);
+				let revealed = new Array(len).fill(false);
+				let step = 0;
+				const STEPS = 14;
+
+				const id = setInterval(() => {
+					for (let i = 0; i < len; i++) {
+						if (!revealed[i]) display[i] = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+					}
+
+					if (step >= STEPS) {
+						for (let i = 0; i < len; i++) {
+							if (!revealed[i]) { display[i] = phrase[i]; revealed[i] = true; break; }
+						}
+					}
+
+					el.textContent = display.join('');
+
+					if (revealed.every(Boolean)) {
+						el.textContent = phrase;
+						clearInterval(id);
+						done();
+					}
+					step++;
+				}, 28);
+			}
+
+			function next() {
+				scramble(PHRASES[phraseIdx], () => {
+					phraseIdx = (phraseIdx + 1) % PHRASES.length;
+					setTimeout(next, 2600);
+				});
+			}
+
+			document.addEventListener('DOMContentLoaded', next);
+			next();
+		})();
+
+
+		/* ================================================================
+		   DRAG-TO-SCROLL for horizontal scrollers (mouse support)
+		================================================================ */
+		document.querySelectorAll('.hscroll').forEach(el => {
+			let isDown = false, startX, scrollLeft;
+
+			el.addEventListener('mousedown', e => {
+				isDown = true;
+				el.style.cursor = 'grabbing';
+				startX = e.pageX - el.offsetLeft;
+				scrollLeft = el.scrollLeft;
+			});
+			el.addEventListener('mouseleave', () => { isDown = false; el.style.cursor = 'grab'; });
+			el.addEventListener('mouseup', () => { isDown = false; el.style.cursor = 'grab'; });
+			el.addEventListener('mousemove', e => {
+				if (!isDown) return;
+				e.preventDefault();
+				const x = e.pageX - el.offsetLeft;
+				el.scrollLeft = scrollLeft - (x - startX);
+			});
+
+			el.style.cursor = 'grab';
+		});
+	</script>
 
 </body>
 
